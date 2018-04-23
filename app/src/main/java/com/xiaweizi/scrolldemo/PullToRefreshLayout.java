@@ -260,6 +260,11 @@ public class PullToRefreshLayout extends RelativeLayout {
         timer.schedule(5);
     }
 
+    public void requestLayout1() {
+        pullDownY = 60;
+        requestLayout();
+    }
+
     /**
      * 加载完毕，显示加载结果。注意：加载完成后一定要调用这个方法
      *
@@ -312,6 +317,7 @@ public class PullToRefreshLayout extends RelativeLayout {
                 mEvents = -1;
                 break;
             case MotionEvent.ACTION_MOVE:
+
                 if (mEvents == 0) {
                     if (pullDownY > 0 || (((Pullable) pullableView).canPullDown()
                             && canPullDown && state != LOADING)) {
