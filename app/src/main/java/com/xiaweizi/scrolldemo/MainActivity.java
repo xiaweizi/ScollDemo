@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,19 +38,13 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.verticalOffset = verticalOffset;
             }
         });
-        findViewById(R.id.scroll).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               TouchEvent.setMoveToBottom(-verticalOffset, MainActivity.this);
-            }
-        });
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
         List<Fragment> data = new ArrayList<>();
         String[] titles = new String[]{"fragment1", "fragment2", "fragment3"};
-        public ViewPagerAdapter(FragmentManager fm) {
+        ViewPagerAdapter(FragmentManager fm) {
             super(fm);
             for (int i = 0; i < 3; i++) {
                 data.add(new ContentFragment());
