@@ -66,19 +66,24 @@ public class TouchEvent {
         long downTime = SystemClock.uptimeMillis();
         int tempDistance = distance / 5;
         int time = 1;
-        activity.dispatchTouchEvent(MotionEvent.obtain(downTime, downTime + time,
-                MotionEvent.ACTION_DOWN, 0, 400, 0));
-        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time, time * 2,
-                MotionEvent.ACTION_MOVE, 0, 400 + tempDistance, 0));
-        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 2, downTime + time * 3,
-                MotionEvent.ACTION_MOVE, 0, 400 + tempDistance * 2, 0));
-        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 3, downTime + time * 4,
-                MotionEvent.ACTION_MOVE, 0, 400 + tempDistance * 3, 0));
-        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 4, downTime + time * 5,
-                MotionEvent.ACTION_MOVE, 0, 400 + tempDistance * 4, 0));
-        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 5, downTime + time * 6,
-                MotionEvent.ACTION_UP, 0, 400 + tempDistance * 5, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime, downTime + time, MotionEvent.ACTION_DOWN, 0, 400, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time, downTime + time * 2, MotionEvent.ACTION_MOVE, 0, 400 + tempDistance, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 2, downTime + time * 3, MotionEvent.ACTION_MOVE, 0, 400 + tempDistance * 2, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 3, downTime + time * 4, MotionEvent.ACTION_MOVE, 0, 400 + tempDistance * 3, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 4, downTime + time * 5, MotionEvent.ACTION_MOVE, 0, 400 + tempDistance * 4, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 5, downTime + time * 6, MotionEvent.ACTION_UP, 0, 400 + tempDistance * 5, 0));
         Log.d(TAG, "setMoveToBottom: ");
+    }
+
+    public static void setMoveToBottom1(int distance, Activity activity) {
+        Log.i(TAG, "setMoveToBottom1: " + distance);
+        long downTime = SystemClock.uptimeMillis();
+        int tempDistance = distance / 2;
+        int time = 1;
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime, downTime + time, MotionEvent.ACTION_DOWN, 0, 400, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time, downTime + time * 2, MotionEvent.ACTION_MOVE, 0, 400 + tempDistance, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 2, downTime + time * 3, MotionEvent.ACTION_MOVE, 0, 400 + tempDistance * 2, 0));
+        activity.dispatchTouchEvent(MotionEvent.obtain(downTime + time * 3, downTime + time * 4, MotionEvent.ACTION_UP, 0, 400 + tempDistance * 3, 0));
     }
 
     /**

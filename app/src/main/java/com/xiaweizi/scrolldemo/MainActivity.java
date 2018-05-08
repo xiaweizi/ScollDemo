@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 MainActivity.this.verticalOffset = verticalOffset;
+            }
+        });
+        findViewById(R.id.bt_top).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TouchEvent.setMoveToBottom1(-verticalOffset, MainActivity.this);
             }
         });
     }
