@@ -42,8 +42,8 @@ public class GestureTouchUtils {
             ((View) object).onTouchEvent(downEvent);
             ((View) object).onTouchEvent(upEvent);
         } else if (object instanceof Activity) {
-            ((Activity) object).onTouchEvent(downEvent);
-            ((Activity) object).onTouchEvent(upEvent);
+            ((Activity) object).dispatchTouchEvent(downEvent);
+            ((Activity) object).dispatchTouchEvent(upEvent);
         }
         downEvent.recycle();
         upEvent.recycle();
