@@ -10,6 +10,9 @@
         android:id="@+id/my_view_left"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:paint_color="#0f0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/my_view_right" />
 
@@ -28,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:text="模拟点击"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

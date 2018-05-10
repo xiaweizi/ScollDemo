@@ -42,9 +42,12 @@ public class MyView extends View {
     }
 
     private void initView(Context context, AttributeSet attrs, int defStyle) {
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.MyView);
+        int color = ta.getColor(R.styleable.MyView_paint_color, Color.RED);
+        ta.recycle();
         mPaint = new Paint();
         mPaint.setAntiAlias(false);
-        mPaint.setColor(Color.RED);
+        mPaint.setColor(color);
         mPaint.setStyle(Paint.Style.FILL);
     }
 

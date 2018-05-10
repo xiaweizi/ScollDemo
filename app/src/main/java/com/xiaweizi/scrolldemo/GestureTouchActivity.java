@@ -15,8 +15,9 @@ public class GestureTouchActivity extends AppCompatActivity {
         findViewById(R.id.bt_click).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GestureTouchUtils.simulateClick(findViewById(R.id.my_view), 100, 100);
-                GestureTouchUtils.simulateClick(GestureTouchActivity.this, 0, 250);
+                GestureTouchUtils.simulateClick(findViewById(R.id.my_view_left), 100, 100);
+                GestureTouchUtils.simulateClick(findViewById(R.id.my_view_right), 100, 100);
+                GestureTouchUtils.simulateClick(GestureTouchActivity.this, 200, 200);
             }
         });
     }
