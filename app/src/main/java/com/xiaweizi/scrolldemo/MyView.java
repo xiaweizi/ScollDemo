@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -66,6 +67,12 @@ public class MyView extends View {
         super.onDraw(canvas);
         for (Point point : mData) {
             canvas.drawCircle(point.x, point.y, 50, mPaint);
+        }
+    }
+
+    public void setPaintColor(@ColorInt int color) {
+        if (mPaint != null) {
+            mPaint.setColor(color);
         }
     }
 
