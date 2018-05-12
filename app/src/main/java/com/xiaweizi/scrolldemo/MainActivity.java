@@ -23,5 +23,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, GestureTouchActivity.class));
             }
         });
+        findViewById(R.id.bt_move).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, GestureScrollActivity.class));
+            }
+        });
     }
 }

@@ -10,8 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.touch.GestureTouchUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +42,6 @@ public class ScrollActivity extends AppCompatActivity {
         findViewById(R.id.bt_top).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GestureTouchUtils.simulateScroll(400, 200, 400, 1200, 10000, ScrollActivity.this);
             }
         });
     }
