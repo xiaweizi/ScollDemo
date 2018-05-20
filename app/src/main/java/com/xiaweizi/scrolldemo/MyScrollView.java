@@ -11,13 +11,15 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.Random;
+
 /**
  * <pre>
  *     author : xiaweizi
  *     class  : com.xiaweizi.scrolldemo.MyView
  *     e-mail : 1012126908@qq.com
  *     time   : 2018/05/08
- *     desc   :
+ *     desc   : 自定义可以展示滑动轨迹的 view
  * </pre>
  */
 
@@ -49,7 +51,7 @@ public class MyScrollView extends View{
         mPaint.setAntiAlias(false);
         mPaint.setColor(color);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(20);
+        mPaint.setStrokeWidth(2);
         mPath = new Path();
     }
 
@@ -59,6 +61,7 @@ public class MyScrollView extends View{
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mPath.moveTo(event.getX(), event.getY());
+                invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
                 mPath.lineTo(event.getX(), event.getY());
@@ -66,6 +69,7 @@ public class MyScrollView extends View{
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
+                mPath.lineTo(event.getX(), event.getY());
                 invalidate();
                 break;
         }
@@ -78,5 +82,15 @@ public class MyScrollView extends View{
         canvas.drawPath(mPath, mPaint);
     }
 
+    /**
+     * 更改画笔的颜色
+     */
+    public int changeColor() {
+        int[] colors = new int[]{Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.DKGRAY};
+        int color = new Random().nextInt(5);
+        Log.i(TAG, "changeColor: " + color);
+        mPaint.setColor(colors[color]);
+        return colors[color];
+    }
 
 }

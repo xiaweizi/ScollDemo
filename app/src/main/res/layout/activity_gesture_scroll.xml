@@ -9,11 +9,50 @@
     <com.xiaweizi.scrolldemo.MyScrollView
         android:id="@+id/my_scroll_view"
         android:background="#1dff0000"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="170dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt5"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_height="0dp" />
 
     <Button
-        android:id="@+id/bt_simulate_scroll"
+        android:id="@+id/bt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="T-N,P-N"/>
+    <Button
+        app:layout_constraintLeft_toRightOf="@id/bt1"
+        android:id="@+id/bt2"
+        android:text="T-H,P-H"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        app:layout_constraintLeft_toRightOf="@id/bt2"
+        android:id="@+id/bt3"
+        android:text="T-H,P-L"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        app:layout_constraintLeft_toRightOf="@id/bt3"
+        android:id="@+id/bt4"
+        android:text="T-H,P-L"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt5"
+        app:layout_constraintTop_toBottomOf="@id/bt1"
+        android:text="T-H,P-L"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt6"
+        app:layout_constraintTop_toBottomOf="@id/bt1"
+        android:text="change color"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@id/bt5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
