@@ -15,7 +15,7 @@ public class GestureScrollActivity extends AppCompatActivity {
         findViewById(R.id.bt_simulate_scroll).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GestureTouchUtils.simulateScroll(findViewById(R.id.my_scroll_view), 300, 300, 500, 500, 2);
+                GestureTouchUtils.simulateScroll(findViewById(R.id.my_scroll_view), 300, 300, 500, 500);
             }
         });
     }
