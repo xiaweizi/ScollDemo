@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -21,6 +22,8 @@ import android.view.View;
  */
 
 public class MyScrollView extends View{
+
+    private static final String TAG = "MyScrollView";
 
     private Paint mPaint;
     private Path mPath;
@@ -52,6 +55,7 @@ public class MyScrollView extends View{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.i(TAG, "onTouchEvent: " + "x: " + event.getX() + "\ty: " + event.getY());
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mPath.moveTo(event.getX(), event.getY());
