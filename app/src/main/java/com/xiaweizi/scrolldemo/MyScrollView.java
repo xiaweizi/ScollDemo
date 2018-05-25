@@ -51,7 +51,7 @@ public class MyScrollView extends View{
         mPaint.setAntiAlias(false);
         mPaint.setColor(color);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(2);
+        mPaint.setStrokeWidth(4);
         mPath = new Path();
     }
 

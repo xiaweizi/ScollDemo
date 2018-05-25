@@ -1,5 +1,6 @@
 package com.xiaweizi.scrolldemo;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
@@ -9,6 +10,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
+
+import com.example.touch.GestureTouchUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,11 @@ public class ScrollActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //透明状态栏
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        //Then call setStatusBarColor.
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        getWindow().setStatusBarColor(Color.RED);
         setContentView(R.layout.activity_scroll);
         initRefreshLayout();
         mViewPager = findViewById(R.id.viewPager);
@@ -36,12 +45,13 @@ public class ScrollActivity extends AppCompatActivity {
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                ScrollActivity.this.verticalOffset = verticalOffset;
+                ScrollActivity.this.verticalOffset = Math.abs(verticalOffset);
             }
         });
         findViewById(R.id.bt_top).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GestureTouchUtils.simulateScroll(ScrollActivity.this, 400, 400, 400, 400 + verticalOffset, 50, GestureTouchUtils.HIGH);
             }
         });
     }
@@ -50,6 +60,7 @@ public class ScrollActivity extends AppCompatActivity {
 
         List<Fragment> data = new ArrayList<>();
         String[] titles = new String[]{"fragment1", "fragment2", "fragment3"};
+
         ViewPagerAdapter(FragmentManager fm) {
             super(fm);
             for (int i = 0; i < 3; i++) {
