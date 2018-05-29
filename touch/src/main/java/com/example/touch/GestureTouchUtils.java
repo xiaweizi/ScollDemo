@@ -161,10 +161,8 @@ public class GestureTouchUtils {
      * 处理手势点击的操作
      */
     private static void dealSimulateClick(Object object, float x, float y) {
-        long downTime = SystemClock.uptimeMillis();
-        final MotionEvent downEvent = MotionEvent.obtain(downTime, downTime, MotionEvent.ACTION_DOWN, x, y, 0);
-        downTime += 500;
-        final MotionEvent upEvent = MotionEvent.obtain(downTime, downTime, MotionEvent.ACTION_UP, x, y, 0);
+        MotionEvent downEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, x, y, 0);
+        MotionEvent upEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, x, y, 0);
         if (object instanceof View) {
             ((View) object).onTouchEvent(downEvent);
             ((View) object).onTouchEvent(upEvent);
